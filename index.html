@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#090909">
+<meta name="description" content="FRAME helps local businesses plan social content with content calendars, hooks, captions and video ideas.">
+<meta property="og:title" content="FRAME — AI Content Studio">
+<meta property="og:description" content="Plan your next month of social content in minutes.">
+<meta property="og:type" content="website">
+<title>FRAME — AI Content Studio</title>
+<style>
+:root{--bg:#090909;--panel:#111;--panel2:#171717;--line:#292929;--text:#f6f6f6;--muted:#a6a6a6;--soft:#d8d8d8;--accent:#d9ff65}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.5}a{color:inherit;text-decoration:none}button,input,select,textarea{font:inherit}button{cursor:pointer}.wrap{width:min(1120px,calc(100% - 40px));margin:auto}.nav{height:76px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #202020}.brand{display:flex;align-items:center;gap:10px;font-size:15px;font-weight:850;letter-spacing:1.6px}.brand-mark{width:30px;height:30px;border:1px solid #777;display:grid;place-items:center;font-size:14px}.navlinks{display:flex;align-items:center;gap:27px;color:#c7c7c7;font-size:13px}.navlinks a:hover{color:white}.pill{display:inline-flex;align-items:center;gap:8px;padding:10px 15px;border:1px solid #454545;border-radius:999px;font-size:12px;font-weight:700}.pill.lime{background:var(--accent);color:#111;border-color:var(--accent)}.hero{padding:88px 0 72px;display:grid;grid-template-columns:1.03fr .97fr;gap:52px;align-items:center}.eyebrow{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);font-weight:800}.hero h1{font-size:clamp(42px,6.2vw,76px);letter-spacing:-4px;line-height:.99;margin:20px 0}.hero h1 span{color:#8b8b8b}.hero p{max-width:480px;color:#aaa;font-size:16px}.actions{display:flex;gap:11px;flex-wrap:wrap;margin-top:28px}.note{font-size:11px;color:#777;margin-top:16px}.mock{background:linear-gradient(145deg,#181818,#0e0e0e);border:1px solid #303030;border-radius:18px;padding:17px;box-shadow:0 24px 80px #0008;transform:rotate(1deg)}.mocktop{display:flex;justify-content:space-between;align-items:center;padding:5px 3px 15px;color:#aaa;font-size:11px}.status{color:var(--accent);font-size:10px}.dash{display:grid;grid-template-columns:115px 1fr;min-height:310px;border:1px solid #292929;border-radius:11px;overflow:hidden}.side{padding:15px 9px;background:#0b0b0b;border-right:1px solid #292929}.side div{padding:9px 7px;border-radius:6px;font-size:10px;color:#777;margin-bottom:4px}.side .active{background:#202020;color:#fff}.dashmain{padding:16px}.dashmain h3{font-size:16px;margin:0 0 4px}.sub{font-size:10px;color:#777}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin:14px 0}.stat{padding:10px;background:#191919;border:1px solid #2c2c2c;border-radius:7px}.stat strong{display:block;font-size:18px}.stat small{font-size:9px;color:#888}.miniweek{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}.day{background:#171717;border:1px solid #2a2a2a;padding:7px;border-radius:6px;min-height:83px}.day b{font-size:9px;color:#888}.day span{display:block;font-size:9px;margin-top:7px}.tag{display:inline-block;margin-top:5px;padding:3px 5px;border-radius:4px;background:#303522;color:#dfff7a;font-size:8px}.trust{border-top:1px solid #222;border-bottom:1px solid #222;padding:22px 0;color:#818181;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}.section{padding:78px 0}.section-head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:28px}.section h2{font-size:clamp(30px,4vw,46px);letter-spacing:-1.8px;line-height:1.05;margin:10px 0}.section-head p{color:#999;max-width:390px;font-size:14px}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.price-card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:25px;display:flex;flex-direction:column}
+.price-card.featured{border-color:var(--accent);box-shadow:0 0 0 1px #d9ff6522}
+.plan-label{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent);font-weight:800}
+.price{font-size:38px;font-weight:850;letter-spacing:-1.5px;margin:14px 0 2px}
+.price small{font-size:13px;letter-spacing:0;color:#999;font-weight:500}
+.price-desc{color:#999;font-size:13px;min-height:40px}
+.features{list-style:none;padding:0;margin:20px 0;display:grid;gap:11px;color:#ddd;font-size:13px}
+.features li:before{content:"✓";color:var(--accent);margin-right:9px}
+.price-card .pill{justify-content:center;margin-top:auto}
+@media(max-width:800px){.pricing-grid{grid-template-columns:1fr}}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:13px;padding:22px}.num{color:var(--accent);font-size:11px;letter-spacing:1px}.card h3{font-size:18px;margin:24px 0 8px}.card p{color:#999;font-size:13px;margin:0}.generator{display:grid;grid-template-columns:.85fr 1.15fr;gap:20px;align-items:start}.formbox,.outputbox{background:var(--panel);border:1px solid var(--line);border-radius:15px;padding:24px}.formbox h3,.outputbox h3{margin:0 0 6px;font-size:21px}.muted{color:#999;font-size:13px}.field{margin-top:16px}.field label{display:block;font-size:12px;color:#d4d4d4;margin-bottom:7px}.field input,.field select,.field textarea{width:100%;background:#0a0a0a;color:#fff;border:1px solid #343434;border-radius:8px;padding:11px 12px;outline:none}.field input:focus,.field select:focus,.field textarea:focus{border-color:#888}.field textarea{resize:vertical;min-height:74px}.twocol{display:grid;grid-template-columns:1fr 1fr;gap:12px}.fullbtn{width:100%;border:0;border-radius:8px;background:var(--accent);color:#101010;font-weight:850;padding:13px;margin-top:19px}.outputhead{display:flex;justify-content:space-between;align-items:center;gap:10px}.smallbtn{background:transparent;color:#eee;border:1px solid #444;border-radius:7px;padding:8px 10px;font-size:11px}.empty{border:1px dashed #383838;border-radius:10px;min-height:270px;display:grid;place-items:center;text-align:center;padding:24px;margin-top:18px;color:#777}.empty strong{display:block;color:#ddd;margin-bottom:6px}.results{margin-top:18px;display:none}.resultsummary{padding:13px;border:1px solid #333;background:#0b0b0b;border-radius:9px;margin-bottom:10px;font-size:12px;color:#ccc}.post{border:1px solid #303030;background:#0d0d0d;border-radius:9px;padding:14px;margin-bottom:9px}.posttop{display:flex;justify-content:space-between;gap:8px;color:#999;font-size:10px}.post h4{font-size:14px;margin:9px 0 5px}.post p{font-size:12px;color:#aaa;margin:5px 0}.post .caption{color:#ddd}.post .meta{color:#888;font-size:10px;margin-top:8px}.faq{border-top:1px solid #292929}.faq details{border-bottom:1px solid #292929;padding:17px 0}.faq summary{cursor:pointer;font-weight:700;font-size:14px}.faq details p{color:#999;font-size:13px;max-width:760px}.cta{padding:44px;border:1px solid #333;border-radius:16px;background:linear-gradient(120deg,#181818,#0d0d0d);display:flex;justify-content:space-between;align-items:center;gap:20px}.cta h2{margin:0 0 8px;font-size:32px;letter-spacing:-1px}.cta p{color:#999;margin:0;font-size:13px}.footer{padding:28px 0;border-top:1px solid #222;color:#777;font-size:11px;display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}.toast{display:none;position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#eee;color:#111;padding:11px 16px;border-radius:8px;font-size:12px;font-weight:700;z-index:10}
+@media(max-width:800px){.hero{grid-template-columns:1fr;padding:60px 0 50px;gap:35px}.hero h1{letter-spacing:-2.5px}.mock{transform:none}.generator{grid-template-columns:1fr}.cards{grid-template-columns:1fr}.section{padding:56px 0}.section-head{display:block}.section-head p{margin-bottom:0}.navlinks a:not(.pill){display:none}.dash{grid-template-columns:90px 1fr}.side div{font-size:9px}.cta{padding:25px;display:block}.cta .pill{margin-top:20px}.trust{justify-content:center}.twocol{grid-template-columns:1fr}}
+
+.selected-plan{display:flex;align-items:center;justify-content:space-between;gap:20px;margin:0 0 22px;padding:22px 24px;border:1px solid #343434;border-radius:18px;background:linear-gradient(120deg,#171717,#101010)}
+.selected-plan h3{margin:5px 0 6px;font-size:21px}.selected-plan p{margin:0;color:#aaa;line-height:1.6}.selected-plan-price{font-weight:800;font-size:22px;color:#c5ff4a;white-space:nowrap}
+.workspace-banner{display:none;align-items:center;justify-content:space-between;gap:20px;padding:22px 24px;margin-bottom:18px;border:1px solid #343434;border-radius:18px;background:#151515}
+.workspace-banner h2{margin:5px 0;font-size:clamp(24px,3vw,34px)}.workspace-banner p{margin:0;color:#aaa}
+#workspaceView{display:none}.plan-badge{display:inline-block;padding:7px 11px;border-radius:999px;border:1px solid #3a3a3a;color:#c5ff4a;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+@media(max-width:650px){.selected-plan,.workspace-banner{align-items:flex-start;flex-direction:column}.selected-plan-price{font-size:20px}}
+
+</style>
+</head>
+<body>
+<header class="wrap nav">
+  <a class="brand" href="#"><span class="brand-mark">F.</span> FRAME <span style="color:#777;font-weight:500">/ AI CONTENT STUDIO</span></a>
+  <nav class="navlinks"><a href="#how">How it works</a><a href="#pricing">Pricing</a><a href="demo.html">Free demo</a><a href="#faq">FAQ</a><a class="pill lime" href="demo.html">Try free demo ↗</a></nav>
+</header>
+<main>
+<section class="wrap hero">
+  <div>
+    <div class="eyebrow">✳ Content, without the chaos</div>
+    <h1>Your next month of content.<br><span>Planned in minutes.</span></h1>
+    <p>Turn your business details into a practical social media calendar, with post ideas, video hooks, shot lists and captions ready for your review.</p>
+    <div class="actions"><a class="pill lime" href="demo.html">Generate a content plan ↗</a><a class="pill" href="#how">See how it works</a></div>
+    <div class="note">A simple starter tool for barbers, creators and local businesses. No account required.</div>
+  </div>
+  <div class="mock">
+    <div class="mocktop"><span>FRAME / WORKSPACE</span><span class="status">● PLAN PREVIEW</span></div>
+    <div class="dash">
+      <aside class="side"><div>Overview</div><div class="active">Content plan</div><div>Calendar</div><div>Brand voice</div><div>Performance</div></aside>
+      <div class="dashmain"><h3>October content plan</h3><div class="sub">Elite Cuts · Instagram + TikTok</div>
+        <div class="stats"><div class="stat"><strong>16</strong><small>POST IDEAS</small></div><div class="stat"><strong>4</strong><small>WEEKLY THEMES</small></div><div class="stat"><strong>30</strong><small>DAYS PLANNED</small></div></div>
+        <div class="miniweek">
+          <div class="day"><b>MON 05</b><span>Fade transformation</span><i class="tag">REEL</i></div>
+          <div class="day"><b>WED 07</b><span>Meet your barber</span><i class="tag">PHOTO</i></div>
+          <div class="day"><b>FRI 09</b><span>Cut-care tips</span><i class="tag">CAROUSEL</i></div>
+          <div class="day"><b>SUN 11</b><span>Shop behind scenes</span><i class="tag">REEL</i></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="wrap trust"><span>Built for local business</span><span>Short-form content</span><span>Practical strategy</span><span>Human-reviewed drafts</span></div>
+<section class="wrap section" id="how">
+  <div class="section-head"><div><div class="eyebrow">A simpler workflow</div><h2>From blank page<br>to a plan you can use.</h2></div><p>Start with your business details. Get a structured draft that you can customize, review and organize into your calendar.</p></div>
+  <div class="cards">
+    <article class="card"><div class="num">01 / INPUT</div><h3>Tell us about your business</h3><p>Choose your industry, audience, goals, platforms and brand style. The more specific your inputs, the more relevant your ideas.</p></article>
+    <article class="card"><div class="num">02 / GENERATE</div><h3>Get a content plan</h3><p>Generate post topics, hooks, practical shot lists, captions and calls to action tailored to the business.</p></article>
+    <article class="card"><div class="num">03 / PUBLISH</div><h3>Review and schedule</h3><p>Copy the draft into your content calendar. Confirm all business details and dates before publishing.</p></article>
+  </div>
+</section>
+
+<section class="wrap section" id="pricing">
+  <div class="section-head">
+    <div><div class="eyebrow">Simple monthly plans</div><h2>Choose your content plan.</h2></div>
+    <p>Start small, then upgrade as your content needs grow. All plans are monthly and priced in Canadian dollars.</p>
+  </div>
+  <div class="pricing-grid">
+    <article class="price-card">
+      <div class="plan-label">Basic</div>
+      <div class="price">$49 <small>CAD / month</small></div>
+      <p class="price-desc">A practical starting point for one small business.</p>
+      <ul class="features">
+        <li>Up to 12 post ideas per month</li>
+        <li>Hooks, captions and calls to action</li>
+        <li>One business and one main platform</li>
+        <li>Copy-ready content plan</li>
+      </ul>
+      <a class="pill" href="checkout.html?plan=Basic">Choose Basic ↗</a>
+    </article>
+    <article class="price-card featured">
+      <div class="plan-label">Premium · Most popular</div>
+      <div class="price">$79 <small>CAD / month</small></div>
+      <p class="price-desc">More variety and planning for a growing brand.</p>
+      <ul class="features">
+        <li>Everything in Basic</li>
+        <li>Up to 20 post ideas per month</li>
+        <li>Instagram and TikTok planning</li>
+        <li>Weekly themes and campaign prompts</li>
+        <li>Brand voice guidance</li>
+      </ul>
+      <a class="pill lime" href="checkout.html?plan=Premium">Choose Premium ↗</a>
+    </article>
+    <article class="price-card">
+      <div class="plan-label">Ultimate</div>
+      <div class="price">$129.99 <small>CAD / month</small></div>
+      <p class="price-desc">A more complete planning package for busy businesses.</p>
+      <ul class="features">
+        <li>Everything in Premium</li>
+        <li>Up to 30 post ideas per month</li>
+        <li>Multi-platform content planning</li>
+        <li>Campaign and promotion concepts</li>
+        <li>Short-form video shot lists and hooks</li>
+      </ul>
+      <a class="pill" href="checkout.html?plan=Ultimate">Choose Ultimate ↗</a>
+    </article>
+  </div>
+  <p class="note">The free demo includes a 3-day content plan. Paid subscriptions open a separate checkout page; payments activate once the server is configured.</p>
+</section>
+
+<section class="section" id="generator" style="background:#0d0d0d;border-top:1px solid #202020;border-bottom:1px solid #202020">
+  <div class="wrap">
+    <div class="section-head"><div><div class="eyebrow">Free starter tool</div><h2>Build your content plan.</h2></div><p>Fill in the details and generate a tailored plan draft. This demo runs in your browser and doesn't send your details to a server.</p></div>
+    <div class="selected-plan" id="selectedPlan" aria-live="polite">
+      <div><div class="eyebrow">Step 1 of 2 · Plan setup</div><h3 id="selectedPlanTitle">Start with the free demo</h3><p id="selectedPlanDescription">Choose a plan above or use the free demo to build a sample content calendar.</p></div>
+      <div class="selected-plan-price" id="selectedPlanPrice">Free demo</div>
+    </div>
+    <div class="generator">
+      <form class="formbox" id="planForm">
+        <h3>Business brief</h3><div class="muted">Tell us what you're marketing.</div>
+        <div class="field"><label for="business">Business name</label><input id="business" placeholder="e.g. Elite Cuts" value="Elite Cuts" required></div>
+        <div class="twocol">
+          <div class="field"><label for="industry">Business type</label><select id="industry"><option value="barber">Barbershop</option><option value="detailing">Auto detailing</option><option value="restaurant">Restaurant / café</option><option value="fitness">Fitness coach / gym</option><option value="landscaping">Landscaping</option><option value="other">Other local business</option></select></div>
+          <div class="field"><label for="platform">Main platform</label><select id="platform"><option>Instagram</option><option>TikTok</option><option>Instagram + TikTok</option><option>Facebook</option><option>LinkedIn</option></select></div>
+        </div>
+        <div class="field"><label for="audience">Ideal customer</label><input id="audience" placeholder="e.g. students and professionals" value="local customers"></div>
+        <div class="field"><label for="goal">Main goal</label><select id="goal"><option value="bookings">Increase enquiries and bookings</option><option value="awareness">Build brand awareness</option><option value="engagement">Grow engagement</option><option value="launch">Promote a new service</option></select></div>
+        <div class="field"><label for="style">Brand style</label><select id="style"><option value="premium">Premium and polished</option><option value="friendly">Friendly and approachable</option><option value="bold">Bold and energetic</option><option value="educational">Educational and expert</option><option value="funny">Funny and relatable</option></select></div>
+        <div class="field"><label for="services">Services or products</label><textarea id="services" placeholder="List services, prices only if confirmed, and what makes you different">Fades, tapers, beard trims and haircut consultations</textarea></div>
+        <div class="field"><label for="offer">Current offer or important details (optional)</label><input id="offer" placeholder="Only enter verified details; leave blank if none"></div>
+        <div class="twocol">
+          <div class="field"><label for="posts">Posts per week</label><select id="posts"><option value="3">3 posts</option><option value="4">4 posts</option><option value="5">5 posts</option><option value="2">2 posts</option></select></div>
+          <div class="field"><label for="days">Plan length</label><select id="days"><option value="7">7 days</option><option value="14">14 days</option><option value="30" selected>30 days</option></select></div>
+        </div>
+        <button class="fullbtn" type="submit">Continue to my content workspace ↗</button>
+        <div class="note">Prototype note: this version creates a tailored draft from built-in content templates. Live AI generation and paid checkout are not connected yet.</div>
+      </form>
+      <div class="outputbox">
+        <div class="workspace-banner" id="workspaceBanner"><div><div class="eyebrow">Step 2 of 2 · Your workspace</div><h2>Your content workspace</h2><p>Your draft is ready to review. Edit your brief to regenerate it.</p></div><a class="pill" href="demo.html" id="editBrief">Edit brief ↗</a></div><div class="outputhead"><div><h3>Your content plan</h3><div class="muted" id="outputSubtitle">Your generated posts will appear here.</div></div><button class="smallbtn" id="copyBtn" type="button" style="display:none">Copy plan</button></div>
+        <div class="empty" id="empty"><div><strong>Your calendar starts here.</strong>Complete the business brief and click “Generate my content plan” to create your first draft.</div></div>
+        <div class="results" id="results"><div class="resultsummary" id="summary"></div><div id="postsList"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="wrap section" id="faq">
+  <div class="section-head"><div><div class="eyebrow">Good to know</div><h2>Frequently asked.</h2></div></div>
+  <div class="faq">
+    <details><summary>Is this a real AI generator?</summary><p>This working prototype creates a tailored draft from built-in templates in your browser. It does not yet call a live AI model. The pricing buttons select a plan and take customers into setup, but real checkout, paid access, client logins and cloud storage still require integrations.</p></details>
+    <details><summary>Can I use this for paying clients?</summary><p>You can use the site as a demo and use its draft ideas as a starting point, but review and customize every plan before delivery. Confirm business facts, offers, links, dates and permissions. Don't claim the tool uses live AI until you connect it.</p></details>
+    <details><summary>Does it cost anything?</summary><p>The files can be hosted on a free static hosting service, subject to that provider's terms and limits. A custom domain, live AI API, automated workflows and payment processing may cost money.</p></details>
+    <details><summary>Can customers save their own calendars?</summary><p>This demo has a copy-plan button but no user accounts or cloud storage. A production client portal would need a backend or a suitable third-party service.</p></details>
+  </div>
+</section>
+<section class="wrap section" style="padding-top:0">
+  <div class="cta"><div><div class="eyebrow">Start with a clearer plan</div><h2>Make content easier to create.</h2><p>Generate a draft, review it, and turn it into a consistent publishing routine.</p></div><a class="pill lime" href="demo.html">Try free demo ↗</a></div>
+</section>
+</main>
+<footer class="wrap footer"><span>© 2026 FRAME / AI CONTENT STUDIO</span><span>Plan smarter. Create consistently.</span><span>FRAME starter build — review generated content before publishing.</span></footer>
+<div class="toast" id="toast">Copied to clipboard</div>
+<script>
+const banks = {
+ barber: [
+  ["Transformation Reel","Show the process behind a fresh fade.","Open with the finished cut, then show clipper work and the final reveal.","Fresh cut, clean details. Save this style for your next appointment.","Ask about available appointments."],
+  ["Haircut guide carousel","Explain the difference between a taper and a fade.","Use labeled reference photos or simple diagrams.","Not sure what to ask for? Here is a quick guide to two popular styles.","Save this guide for your next visit."],
+  ["Behind-the-scenes Reel","Give viewers a quick look inside the shop.","Film the shop setup, tools and non-identifiable work moments.","A little look at the craft behind every cut.","Follow for more shop content."],
+  ["Meet the barber post","Introduce the person behind the chair.","Use a portrait and a short quote approved by the barber.","Meet the barber: [add a real introduction and experience here].","Leave a question for the barber."],
+  ["Hair maintenance tips","Teach clients how to maintain a style between appointments.","Film or photograph three simple, accurate care tips.","A few simple habits can help your style stay looking fresh.","Save these tips."],
+  ["Consultation Reel","Show how to communicate haircut preferences.","Film a mock consultation using a reference photo, with permission.","A good reference photo helps you explain the look you want.","Bring your reference to your next appointment."],
+  ["FAQ graphic","Answer a common booking question.","Create a clean branded graphic with verified booking details.","Need to know about appointments? Here is the shop's current policy: [insert verified details].","Check the official booking link."],
+  ["Monthly highlight Reel","Compile approved clips from the month.","Use customer footage only with permission; end on shop branding.","A few highlights from the chair this month.","Follow for upcoming cuts and updates."]
+ ],
+ detailing: [
+  ["Before-and-after Reel","Show a real vehicle cleaning transformation.","Film approved before shots, cleaning steps and final reveal.","A closer look at this detailing transformation.","Ask about available detailing packages."],
+  ["Interior care carousel","Share practical vehicle-care tips.","Use clean close-ups and short labeled tips.","Small habits can help keep your interior looking better.","Save this checklist."],
+  ["Process Reel","Show one satisfying part of the detailing process.","Use close-ups of tools and the actual cleaning process.","The details matter. Here's a look at the process.","Follow for more detailing videos."],
+  ["Service explainer","Explain a service the business actually offers.","Show the service and list verified inclusions.","Here's what this service includes: [insert confirmed details].","Request a quote."],
+  ["Maintenance tips","Teach a simple vehicle-care habit.","Demonstrate the tip accurately and safely.","A practical tip for your next clean.","Save this for later."],
+  ["FAQ post","Answer a common customer question.","Use a branded graphic with verified answers.","Quick answer: [insert the business's verified answer].","Send your question to the team."]
+ ],
+ restaurant: [
+  ["Dish spotlight Reel","Feature a popular menu item.","Film preparation, plating and final dish; confirm menu availability.","A closer look at [verified menu item].","Check the current menu."],
+  ["Behind-the-scenes post","Show a part of the kitchen or service routine.","Film with staff permission and follow food-safety rules.","A little behind the scenes at [business name].","Follow for menu updates."],
+  ["Menu explainer carousel","Explain a few menu options.","Use accurate names, prices and ingredient information.","Not sure what to try? Explore these menu favorites.","View the current menu."],
+  ["Team introduction","Introduce a team member who agrees to be featured.","Use an approved portrait and real quote.","Meet [name], part of the team at [business name].","Say hello in the comments."]
+ ],
+ fitness: [
+  ["Exercise explainer Reel","Demonstrate a suitable exercise with correct form.","Film a qualified coach demonstrating and explaining key cues.","Here's a technique tip for [exercise].","Save for your next session."],
+  ["Coach introduction","Share the coach's real background and approach.","Use a portrait and verified qualifications.","Meet [name] and learn about their coaching approach.","Send a question to the coach."],
+  ["Workout carousel","Share a simple workout idea suitable for the target audience.","List exercises, modifications and appropriate safety notes.","A simple session idea to discuss with your coach.","Save this plan."]
+ ],
+ landscaping: [
+  ["Project transformation","Show a real completed landscaping project.","Use approved before-and-after footage.","A look at this completed outdoor project.","Request an estimate."],
+  ["Seasonal checklist","Share locally relevant yard-care tips.","Use advice appropriate to the season and location.","A few things to consider for your yard this season.","Save this checklist."],
+  ["Behind-the-scenes Reel","Show the process of a real project.","Film tools, progress and finished details safely.","A look at the work behind the finished result.","Ask about service availability."]
+ ],
+ other: [
+  ["Service spotlight","Explain one service clearly.","Show the actual service or a relevant approved example.","Here's what to know about [verified service].","Ask a question or request details."],
+  ["Customer FAQ","Answer a common question accurately.","Use a branded graphic or short talking-head video.","Quick answer: [insert verified business information].","Contact the business for details."],
+  ["Behind-the-scenes post","Show how the business works.","Use authentic footage and respect customer privacy.","A look behind the scenes at [business name].","Follow for more updates."]
+ ]
+};
+const hooksByGoal = {
+ bookings:["Make your next appointment easier to plan.","Here's what to know before you book.","Looking for a local option? Here's what we offer."],
+ awareness:["Get to know the people behind the business.","Here's a closer look at what we do.","A quick introduction to our process."],
+ engagement:["Which option would you choose?","Save this idea for later.","What would you like us to cover next?"],
+ launch:["Here's a closer look at our featured service.","Meet the service we're highlighting this month.","Here's what you should know before getting started."]
+};
+const $ = id => document.getElementById(id);
+let latestPlan = "";
+function generatePlan(e){
+ e.preventDefault();
+ const name=$("business").value.trim() || "Your business";
+ const type=$("industry").value, platform=$("platform").value, audience=$("audience").value.trim()||"local customers";
+ const goal=$("goal").value, style=$("style").value, services=$("services").value.trim(), offer=$("offer").value.trim();
+ const count=Number($("posts").value), days=Number($("days").value);
+ const bank=banks[type]||banks.other;
+ const total=Math.max(1,Math.ceil(days/7*count));
+ const interval=Math.max(1,Math.floor(days/total));
+ const posts=[];
+ const goalHooks=hooksByGoal[goal]||hooksByGoal.awareness;
+ for(let i=0;i<total;i++){
+  const item=bank[i%bank.length];
+  const day=Math.min(days,1+i*interval);
+  const date=new Date(); date.setDate(date.getDate()+day-1);
+  const dateLabel=date.toLocaleDateString(undefined,{month:"short",day:"numeric"});
+  const caption=item[3].replaceAll("[business name]",name);
+  const serviceText=services?`Business context: ${services}.`:"";
+  const offerText=offer?`Mention only this supplied offer/detail: ${offer}.`:"";
+  const goalHook=goalHooks[i%goalHooks.length];
+  const post={
+   date:dateLabel, platform, format:item[0].includes("Reel")?"Reel":item[0].includes("carousel")||item[0].includes("guide")||item[0].includes("checklist")?"Carousel":"Post",
+   topic:item[0], objective:goal.replaceAll("bookings","enquiries and bookings").replaceAll("awareness","brand awareness").replaceAll("engagement","engagement").replaceAll("launch","service promotion"),
+   hook:i%3===0?goalHook:item[1], shot:item[2],
+   caption:`${caption}${services?`\n\nServices: ${services}.`:""}${offer?`\n\nCurrent detail: ${offer}.`:""}`,
+   cta:item[4], notes:`Audience: ${audience}. Brand style: ${style}. ${serviceText} ${offerText}`.trim()
+  };
+  posts.push(post);
+ }
+ $("empty").style.display="none";$("results").style.display="block";$("copyBtn").style.display="inline-block";
+ $("outputSubtitle").textContent=`${name} · ${days}-day draft · ${total} posts`;
+ $("summary").innerHTML=`<strong>${escapeHtml(name)}</strong> · ${escapeHtml(platform)}<br>${total} post drafts over ${days} days for ${escapeHtml(audience)}. Goal: ${escapeHtml(postGoal(goal))}. Review each post and replace placeholders with verified business information before publishing.`;
+ $("postsList").innerHTML=posts.map((p,i)=>`<article class="post"><div class="posttop"><span>${escapeHtml(p.date)} · ${escapeHtml(p.platform)} · ${escapeHtml(p.format)}</span><span>POST ${String(i+1).padStart(2,"0")}</span></div><h4>${escapeHtml(p.topic)}</h4><p><strong>Hook:</strong> ${escapeHtml(p.hook)}</p><p><strong>Shot list:</strong> ${escapeHtml(p.shot)}</p><p class="caption">${escapeHtml(p.caption)}</p><p><strong>CTA:</strong> ${escapeHtml(p.cta)}</p><div class="meta">Status: Draft · ${escapeHtml(p.objective)}</div></article>`).join("");
+ latestPlan=`CONTENT PLAN — ${name}\nPlatform: ${platform}\nGoal: ${postGoal(goal)}\nAudience: ${audience}\n\n`+posts.map((p,i)=>`POST ${i+1} — ${p.date}\nFormat: ${p.format}\nTopic: ${p.topic}\nHook: ${p.hook}\nShot list: ${p.shot}\nCaption: ${p.caption}\nCTA: ${p.cta}\nStatus: Draft\n`).join("\n");
+}
+function postGoal(g){return ({bookings:"Increase enquiries and bookings",awareness:"Build brand awareness",engagement:"Grow engagement",launch:"Promote a new service"})[g]||g}
+function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+
+const tierDetails = {
+  Basic: {price:"$49 CAD / month", desc:"12 post ideas per month, hooks, captions and CTAs for one business and one platform."},
+  Premium: {price:"$79 CAD / month", desc:"20 post ideas, Instagram/TikTok planning, weekly themes and brand voice guidance."},
+  Ultimate: {price:"$129.99 CAD / month", desc:"30 post ideas, multi-platform planning, campaign concepts and short-form video hooks."},
+  Demo: {price:"Free demo", desc:"Try the content planner without selecting a paid plan."}
+};
+let selectedTier = "Demo";
+function setTier(tier, scrollToForm){
+  selectedTier = tierDetails[tier] ? tier : "Demo";
+  const details = tierDetails[selectedTier];
+  $("selectedPlanTitle").textContent = selectedTier === "Demo" ? "Start with the free demo" : `${selectedTier} plan selected`;
+  $("selectedPlanDescription").textContent = details.desc;
+  $("selectedPlanPrice").textContent = details.price;
+  if(scrollToForm) document.getElementById("generator").scrollIntoView({behavior:"smooth",block:"start"});
+}
+document.querySelectorAll(".plan-select").forEach(link => {
+  link.addEventListener("click", () => setTier(link.dataset.plan, false));
+});
+const navPricing = document.querySelector('a[href="demo.html"]');
+if(navPricing && !navPricing.classList.contains("plan-select")){
+  navPricing.addEventListener("click", () => setTier("Demo", false));
+}
+$("planForm").addEventListener("submit", function(e){
+  generatePlan(e);
+  if(e.defaultPrevented){
+    $("workspaceBanner").style.display = "flex";
+    $("results").style.display = "block";
+    $("empty").style.display = "none";
+    $("outputSubtitle").textContent += ` · ${selectedTier === "Demo" ? "Free demo" : selectedTier + " plan preview"}`;
+    history.replaceState(null, "", "#workspace");
+    $("workspaceBanner").scrollIntoView({behavior:"smooth",block:"start"});
+  }
+});
+$("editBrief").addEventListener("click", () => {
+  $("workspaceBanner").style.display = "none";
+  history.replaceState(null, "", "#generator");
+});
+
+$("copyBtn").addEventListener("click",async()=>{
+ try{await navigator.clipboard.writeText(latestPlan);showToast("Content plan copied");}
+ catch(e){const ta=document.createElement("textarea");ta.value=latestPlan;document.body.appendChild(ta);ta.select();document.execCommand("copy");ta.remove();showToast("Content plan copied");}
+});
+function showToast(s){const t=$("toast");t.textContent=s;t.style.display="block";setTimeout(()=>t.style.display="none",1900)}
+</script>
+</body>
+</html>
